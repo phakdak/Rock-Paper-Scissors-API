@@ -10,12 +10,12 @@
 
 ## Introduction
 
-This is a RESTful API implementation for a Rock Paper Scissors game. The API follows best practices and is designed to be maintainable.
+This is a RESTful API implementation for a Rock Paper Scissors game.
 
 ## Requirements
 
-- Node.js (version 14.x or higher)
-- Express.js (version 4.x or higher)
+- [Node.js (version 14.x or higher)](https://nodejs.org/)
+- [Express.js (version 4.x or higher)](https://expressjs.com/)
 
 ## Installation
 
@@ -55,7 +55,7 @@ attributes to display and when.
 }
 ```
 
-#### [POST | PUT | PATCH] /api/games
+#### POST /api/games
 
 Creates a new game. Enter player name in the request-body:
 
@@ -63,7 +63,7 @@ Creates a new game. Enter player name in the request-body:
 { "name": "Lisa" }
 ```
 
-#### [POST | PUT | PATCH] /api/games/{id}/join
+#### PUT /api/games/{id}/join
 
 Connects to a game with a given ID. Enter player name in the request-body:
 
@@ -73,7 +73,7 @@ Connects to a game with a given ID. Enter player name in the request-body:
 }
 ```
 
-#### [POST | PUT | PATCH] /api/games/{id}/move
+#### PUT /api/games/{id}/move
 
 Make a move. Enter name and move in the request-body:
 
