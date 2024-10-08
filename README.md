@@ -21,20 +21,39 @@ This is a RESTful API implementation for a Rock Paper Scissors game. The API fol
 
 1. Clone the repository:
 
+```
+https://github.com/phakdak/Rock-Paper-Scissors-API.git
+```
+
 2. Install dependencies:
+
+```
    npm install
+```
 
 ## Running the Application
 
-1. Start the server:
+Start the server:
 
+```
 npm start
+```
 
-```
 The server will start on port 3000 by default. You can change the port by setting the PORT environment variable.
-```
 
 ## API Endpoints
+
+#### GET /api/games/{id}
+
+Returns the current state of a given game with included attributes. Think about what
+attributes to display and when.
+
+```json
+{
+"id": "some-game-id",
+... other game attributes ...
+}
+```
 
 #### [POST | PUT | PATCH] /api/games
 
