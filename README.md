@@ -19,17 +19,7 @@ This is a RESTful API implementation for a Rock Paper Scissors game.
 
 ## Installation
 
-1. Clone the repository:
-<details>
- <summary>Github link</summary>
-
-```
-https://github.com/phakdak/Rock-Paper-Scissors-API.git
-```
-
-</details>
-
-2. Install dependencies:
+Install dependencies:
 
 ```
    npm install

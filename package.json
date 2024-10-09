@@ -10,7 +10,7 @@
         "express",
         "restful"
     ],
-    "author": "Gustav Segerlind",
+    "author": "",
     "license": "ISC",
     "dependencies": {
         "express": "^4.17.1"
