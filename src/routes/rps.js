@@ -13,6 +13,8 @@ router.get("/:id", (req, res) => {
 });
 //Create game POST operation
 router.post("/", (req, res) => {
+  if (req.body.name == undefined)
+    return res.status(400).json({ error: "Bad request" });
   const game = {
     id: nextGameId,
     players: [{ name: req.body.name, move: undefined }],
@@ -26,6 +28,7 @@ router.put("/:gameId/join", (req, res) => {
   const { name } = req.body;
   const gameId = parseInt(req.params.gameId);
   const game = games.find((g) => g.id === gameId);
+  if (name == undefined) return res.status(400).json({ error: "Bad request" });
   if (!game) return res.status(404).json({ error: "Game not found" });
   if (game.players.length >= 2)
     return res.status(400).json({ error: "Max 2 players per game" });
@@ -39,6 +42,8 @@ router.put("/:gameId/move", (req, res) => {
   const { name, move } = req.body;
   const gameId = parseInt(req.params.gameId);
   const game = games.find((g) => g.id === gameId);
+  if (name == undefined || move == undefined)
+    return res.status(400).json({ error: "Bad request" });
   if (!game) return res.status(404).json({ error: "Game not found" });
   if (game.players.some((player) => player.name === name && !player.move)) {
     game.players.find((player) => player.name === name).move = move;

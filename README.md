@@ -43,10 +43,11 @@ The server will start on port 3000 by default. You can change the port by settin
 
 ## API Endpoints
 
+There
+
 #### GET /api/games/{id}
 
-Returns the current state of a given game with included attributes. Think about what
-attributes to display and when.
+Returns the current state of a given game with included attributes. If no valid id is given 404 will be returned with messsage: "Game not found"
 
 ```json
 {
@@ -57,7 +58,9 @@ attributes to display and when.
 
 #### POST /api/games
 
-Creates a new game. Enter player name in the request-body:
+Creates a new game. if the object key name is missing in the body error 400 will be returned with message "bad request".
+
+Enter player name in the request-body:
 
 ```json
 { "name": "Lisa" }
@@ -65,7 +68,9 @@ Creates a new game. Enter player name in the request-body:
 
 #### PUT /api/games/{id}/join
 
-Connects to a game with a given ID. Enter player name in the request-body:
+Connects to a game with a given ID. If no valid id is given 404 will be returned with messsage: "Game not found". If name of is the same as the other player error 400 will be returned with message "player already exists". If there are already 2 players in a game error 400 will be returned with message: "Max 2 players per game". if the object key name is missing in the body error 400 will be returned with message "bad request".
+
+Enter player name in the request-body:
 
 ```json
 {
@@ -75,7 +80,9 @@ Connects to a game with a given ID. Enter player name in the request-body:
 
 #### PUT /api/games/{id}/move
 
-Make a move. Enter name and move in the request-body:
+Make a move. If no valid id is given 404 will be returned with messsage: "Game not found". If player name is not in game or have already mad their move error 400 will be returned with message: "Invalid player or duplicate move". if the object keys name or move is missing in the body error 400 will be returned with message "bad request".
+
+Enter name and move in the request-body:
 
 ```json
 {
